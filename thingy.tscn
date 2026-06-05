@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://iivlcejc0f3l"]
+
+[node name="Node2D" type="Node2D" unique_id=1174586490]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1686112654]
+position = Vector2(593, 237)
+
+[node name="Player" type="CharacterBody2D" parent="Node2D" unique_id=2138866987]
