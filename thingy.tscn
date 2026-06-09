@@ -23,8 +23,8 @@ sources/1 = SubResource("TileSetAtlasSource_lc2nn")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_viad5"]
 size = Vector2(49, 51)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l7he"]
-size = Vector2(3358, 274.5)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1l7he"]
+distance = -125.0
 
 [node name="Node2D" type="Node2D" unique_id=1174586490]
 
@@ -47,11 +47,10 @@ shape = SubResource("RectangleShape2D_viad5")
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1294167931]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1758253694]
-position = Vector2(-1134, 295)
 script = ExtResource("4_1l7he")
 lastrespawn = Vector2(-575, -73)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1168599487]
-shape = SubResource("RectangleShape2D_1l7he")
+shape = SubResource("WorldBoundaryShape2D_1l7he")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
