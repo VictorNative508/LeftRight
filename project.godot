@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Left, Right?"
-run/main_scene="uid://iivlcejc0f3l"
+run/main_scene="uid://0kfqqes4rfui"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Images/icon.svg"
+
+[autoload]
+
+EventController="*uid://eqx6v5160dy7"
+GameController="*uid://b3lphpq8aeos3"
 
 [editor_plugins]
 

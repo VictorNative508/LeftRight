@@ -1,12 +1,13 @@
-[gd_scene format=4 uid="uid://iivlcejc0f3l"]
+[gd_scene format=4 uid="uid://0kfqqes4rfui"]
 
-[ext_resource type="Script" uid="uid://cx7ql71eota3d" path="res://player.gd" id="1_lc2nn"]
-[ext_resource type="Texture2D" uid="uid://dmvf0ovnk4ki5" path="res://icon.svg" id="2_1l7he"]
-[ext_resource type="Texture2D" uid="uid://ddoii26dookvh" path="res://Assets/Images/MapBlockV1.png" id="3_uhw7t"]
-[ext_resource type="Script" uid="uid://x31pgvuhb1a2" path="res://collision_shape_2d.gd" id="4_1l7he"]
+[ext_resource type="Texture2D" uid="uid://ddoii26dookvh" path="res://Assets/Images/MapBlockV1.png" id="1_aw4cf"]
+[ext_resource type="Script" uid="uid://cx7ql71eota3d" path="res://player.gd" id="2_53wto"]
+[ext_resource type="Texture2D" uid="uid://dmvf0ovnk4ki5" path="res://Assets/Images/icon.svg" id="3_84fmn"]
+[ext_resource type="Script" uid="uid://x31pgvuhb1a2" path="res://collision_shape_2d.gd" id="4_l5rkm"]
+[ext_resource type="PackedScene" uid="uid://llufwlyuipgf" path="res://Collectables/coin.tscn" id="5_53wto"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lc2nn"]
-texture = ExtResource("3_uhw7t")
+texture = ExtResource("1_aw4cf")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -35,11 +36,11 @@ tile_set = SubResource("TileSet_1l7he")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2138866987]
 position = Vector2(-575, -73)
-script = ExtResource("1_lc2nn")
+script = ExtResource("2_53wto")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1477998631]
 scale = Vector2(0.3828125, 0.3984375)
-texture = ExtResource("2_1l7he")
+texture = ExtResource("3_84fmn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2003887649]
 shape = SubResource("RectangleShape2D_viad5")
@@ -47,10 +48,28 @@ shape = SubResource("RectangleShape2D_viad5")
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1294167931]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1758253694]
-script = ExtResource("4_1l7he")
+script = ExtResource("4_l5rkm")
 lastrespawn = Vector2(-575, -73)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1168599487]
 shape = SubResource("WorldBoundaryShape2D_1l7he")
+
+[node name="Coin" parent="." unique_id=162372236 instance=ExtResource("5_53wto")]
+position = Vector2(-810, -13)
+
+[node name="Coin2" parent="." unique_id=236575145 instance=ExtResource("5_53wto")]
+position = Vector2(-1392, -14)
+
+[node name="Coin3" parent="." unique_id=121601114 instance=ExtResource("5_53wto")]
+position = Vector2(-1670, -95)
+
+[node name="Coin4" parent="." unique_id=1755003279 instance=ExtResource("5_53wto")]
+position = Vector2(-1965, -91)
+
+[node name="Coin5" parent="." unique_id=234186213 instance=ExtResource("5_53wto")]
+position = Vector2(-2122, -151)
+
+[node name="Coin6" parent="." unique_id=1343903557 instance=ExtResource("5_53wto")]
+position = Vector2(-1806, -278)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
