@@ -14,6 +14,7 @@ corner_radius_bottom_left = 24
 [node name="Game" type="Node" unique_id=580997290]
 
 [node name="MainMenu" parent="." unique_id=1034636113 instance=ExtResource("1_qxrlw")]
+layer = 0
 script = ExtResource("2_3dryh")
 
 [node name="Background" type="Sprite2D" parent="MainMenu" unique_id=1574745264]
