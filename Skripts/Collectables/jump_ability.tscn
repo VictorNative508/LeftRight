@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://tude2c7ao4gk"]
+
+[ext_resource type="Script" uid="uid://q4acfcv3nn0i" path="res://jump_ability.gd" id="1_1gjwb"]
+[ext_resource type="Texture2D" uid="uid://c52ieiioma3a" path="res://Assets/Images/Jump ability.png" id="2_wi2o6"]
+[ext_resource type="PackedScene" uid="uid://c15xweyajpm2n" path="res://Scenes/interactable.tscn" id="3_o338y"]
+
+[node name="Jump Ability" type="Node2D" unique_id=809585977]
+script = ExtResource("1_1gjwb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2138496716]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_wi2o6")
+
+[node name="Interactable" parent="." unique_id=5688621 instance=ExtResource("3_o338y")]
+label = "to Pickup"
+
+[node name="Message" type="Label" parent="." unique_id=1743171192]
+offset_right = 40.0
+offset_bottom = 23.0

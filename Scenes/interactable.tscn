@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c15xweyajpm2n"]
+
+[ext_resource type="Script" uid="uid://ci7ll72p7c76m" path="res://Scenes/interactable.gd" id="1_8s6bd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2old"]
+
+[node name="Interactable" type="Area2D" unique_id=5688621]
+script = ExtResource("1_8s6bd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=107480884]
+shape = SubResource("RectangleShape2D_g2old")

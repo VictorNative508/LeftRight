@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://clsrtxwaxclu6"]
+
+[ext_resource type="Script" uid="uid://cq0ep3cjqh7p" path="res://sign.gd" id="1_cmpd0"]
+[ext_resource type="Texture2D" uid="uid://2717ugvynf5s" path="res://Assets/Images/Sign.png" id="2_kpoe0"]
+[ext_resource type="PackedScene" uid="uid://c15xweyajpm2n" path="res://Scenes/interactable.tscn" id="3_girlv"]
+
+[node name="Sign" type="Node2D" unique_id=324366725]
+script = ExtResource("1_cmpd0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2120383990]
+position = Vector2(-0.7000002, -0.24999915)
+scale = Vector2(0.12875, 0.121875)
+texture = ExtResource("2_kpoe0")
+
+[node name="Message" type="Label" parent="." unique_id=501646276]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Interactable" parent="." unique_id=5688621 instance=ExtResource("3_girlv")]
+label = "to Read"

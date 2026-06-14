@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://c7x7fam5l7m7r" path="res://Assets/Images/Player/MC1.png" id="3_53wto"]
 [ext_resource type="Script" uid="uid://x31pgvuhb1a2" path="res://collision_shape_2d.gd" id="4_l5rkm"]
 [ext_resource type="PackedScene" uid="uid://llufwlyuipgf" path="res://Collectables/coin.tscn" id="5_53wto"]
+[ext_resource type="Script" uid="uid://b1mrwlvvq0xdh" path="res://Collectables/interact_ui.gd" id="6_17as3"]
+[ext_resource type="PackedScene" uid="uid://clsrtxwaxclu6" path="res://Skripts/Collectables/sign.tscn" id="7_gil04"]
+[ext_resource type="PackedScene" uid="uid://tude2c7ao4gk" path="res://Skripts/Collectables/jump_ability.tscn" id="8_i255h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lc2nn"]
 texture = ExtResource("1_aw4cf")
@@ -38,6 +41,22 @@ size = Vector2(49, 51)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1l7he"]
 distance = -125.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyumn"]
+bg_color = Color(0.9215632, 0.41932917, 0.42538953, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9720705, 0.6729975, 0.6604813, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
 [node name="Node2D" type="Node2D" unique_id=1174586490]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=661659670]
@@ -46,18 +65,13 @@ tile_map_data = PackedByteArray("AAD2/wAAAQAAAAAAAAD2/wEAAQAAAAEAAAD3/wAAAQABAAA
 tile_set = SubResource("TileSet_1l7he")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2138866987]
-position = Vector2(-575, -73)
+position = Vector2(-574, -32)
 script = ExtResource("2_53wto")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=183267956]
-position = Vector2(0.5000076, -1.9073486e-06)
-scale = Vector2(3.062499, 3.1249998)
+position = Vector2(7.6293945e-06, 4)
+scale = Vector2(0.69, 0.705)
 sprite_frames = SubResource("SpriteFrames_84fmn")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1477998631]
-position = Vector2(1.2397766e-05, 9.536743e-07)
-scale = Vector2(3.1249998, 3.1250002)
-texture = ExtResource("3_53wto")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2003887649]
 shape = SubResource("RectangleShape2D_viad5")
@@ -73,5 +87,41 @@ shape = SubResource("WorldBoundaryShape2D_1l7he")
 
 [node name="Coin" parent="." unique_id=162372236 instance=ExtResource("5_53wto")]
 position = Vector2(-830, -137)
+
+[node name="InteractUI" type="CanvasLayer" parent="." unique_id=2141396539]
+script = ExtResource("6_17as3")
+
+[node name="MarginContainer" type="MarginContainer" parent="InteractUI" unique_id=1383560037]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="InteractUI/MarginContainer" unique_id=1263167680]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nyumn")
+
+[node name="Prompt" type="Label" parent="InteractUI/MarginContainer/PanelContainer" unique_id=1644802534]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="Sign" parent="." unique_id=324366725 instance=ExtResource("7_gil04")]
+position = Vector2(-1427, -94)
+scale = Vector2(3, 3)
+
+[node name="Jump Ability" parent="." unique_id=809585977 instance=ExtResource("8_i255h")]
+position = Vector2(-1502, -98.00001)
+scale = Vector2(3, 3)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
